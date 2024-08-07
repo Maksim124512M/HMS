@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Hospital management system</title>
+<link rel="stylesheet" href="{% static 'hms_site/css/home.css' %}">
+{% endblock %}
+
+{% block body %}
+<div>
+    <a href=""><button class="text-white">Про нас</button></a><br>
+    <a href=""><button class="text-white mt-4">Наші лікарі</button></a>
+    <img src="{% static 'hms_site/img/logo.png' %}">
+</div>
+{% endblock %}

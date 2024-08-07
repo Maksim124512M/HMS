@@ -1,0 +1,26 @@
+div {
+    margin-left: 350px;
+    margin-top: 300px;
+}
+
+div button {
+    width: 200px;
+    height: 40px;
+    border: 0;
+    font-size: 25px;
+    background-color: rgb(255, 30, 0);
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+div button:hover {
+    background-color: rgb(34, 179, 179);
+    transition-duration: 0.4s;
+}
+
+div img {
+    position: absolute;
+    right: 10%;
+    top: 240px;
+    width: 500px;
+}
