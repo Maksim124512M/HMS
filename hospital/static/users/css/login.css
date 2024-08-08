@@ -1,0 +1,25 @@
+form {
+    margin-top: 120px;
+}
+
+form label {
+    position: relative;
+    top: 25px;
+    right: 160px;
+}
+
+form label:last-of-type {
+    right: 170px;
+}
+
+form input {
+    width: 450px;
+    height: 35px;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+form button {
+    width: 450px;
+    font-size: 5vw;
+}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'users/css/login.css' %}">
+<title>Вхід в аккаунт</title>
+{% endblock %}
+
+{% block body %}
+<form method="post" class="text-center">
+    {% if form.errors %}
+        <p>Будь ласка, перевірте поля на правильність<br> обидва поля можуть бути чутливими до регістру</p>
+    {% endif %}
+    {% csrf_token %}
+    <label for="{{ form.username.id_for_label }}">Ім'я користувача</label><br>
+    {{ form.username }}<br>
+    <label for="{{ form.password.id_for_label }}" class="me-5">Пароль</label><br>
+    {{ form.password }}<br>
+    <button class="btn btn-success mt-2">Увійти</button>
+    <p class="mt-2">Ще не маєте аккаунту? <a href="">Зареєструватись</a></p>
+</form>
+{% endblock %}
