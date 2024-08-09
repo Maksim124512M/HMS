@@ -9,7 +9,7 @@
 {% block body %}
 <div>
     <a href=""><button class="text-white">Про нас</button></a><br>
-    <a href=""><button class="text-white mt-4">Наші лікарі</button></a>
+    <a href="{% url 'appointments:our_doctors' %}"><button class="text-white mt-4">Наші лікарі</button></a>
     <img src="{% static 'hms_site/img/logo.png' %}">
 </div>
 {% endblock %}

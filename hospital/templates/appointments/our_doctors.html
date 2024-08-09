@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Наші лікарі</title>
+<link rel="stylesheet" href="{% static 'appointments/css/doctors.css' %}">
+{% endblock %}
+
+{% block body %}
+<h2 class="text-center mt-5">Наші лікарі</h2>
+<div class="text-center">
+    {% for doctor in doctors %}
+        <div class="doctor mt">
+            <img src="{{ doctor.image.url }}" class="mt-5" width="130" height="130">
+            <a href="{{ doctor.get_absolute_url }}" style="text-decoration: none;" class="text-dark"><h3>{{ doctor.username }}</h3></a>
+            <h4>{{ doctor.role }}</h4>
+            <hr class="mt-5">
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
