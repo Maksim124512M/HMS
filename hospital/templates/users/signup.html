@@ -2,9 +2,21 @@
 {% load static %}
 
 {% block head %}
-
+<link rel="stylesheet" href="{% static 'users/css/signup.css' %}">
+<title>Зареєструватись</title>
 {% endblock %}
 
 {% block body %}
-
+<form method="post" class="text-center">
+    {% csrf_token %}
+    <label for="{{ form.username.id_for_label }}" class="username-label">Ім'я користувача</label><br>
+    {{ form.username }}<br>
+    <label for="{{ form.email.id_for_label }}" class="email-label">Електронна пошта</label><br>
+    {{ form.email }}<br>
+    <label for="{{ form.password1.id_for_label }}" class="password1-label">Пароль</label><br>
+    {{ form.password1 }}<br>
+    <label for="{{ form.password2.id_for_label }}" class="password2-label">Підтвердити пароль</label><br>
+    {{ form.password2 }}<br>
+    <button class="btn btn-success">Зареєструватись</button>
+</form>
 {% endblock %}

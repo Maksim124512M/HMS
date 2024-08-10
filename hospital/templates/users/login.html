@@ -17,6 +17,6 @@
     <label for="{{ form.password.id_for_label }}" class="me-5">Пароль</label><br>
     {{ form.password }}<br>
     <button class="btn btn-success mt-2">Увійти</button>
-    <p class="mt-2">Ще не маєте аккаунту? <a href="">Зареєструватись</a></p>
+    <p class="mt-2">Ще не маєте аккаунту? <a href="{% url 'users:signup' %}">Зареєструватись</a></p>
 </form>
 {% endblock %}

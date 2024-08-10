@@ -18,7 +18,7 @@
             <li><a href="" class="text-white">Контакти</a></li>
             <li><a href="" class="text-white">Записатись на прийом</a></li>
         </ul>
-        <a href=""><img src="{% static 'img/default_user_icon.png' %}" alt=""></a>
+        <a href="{% url 'users:profile' %}"><img src="{% static 'img/default_user_icon.png' %}"></a>
     </header>
 
     {% block body %}

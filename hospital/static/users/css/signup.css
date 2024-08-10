@@ -1,0 +1,37 @@
+form {
+    margin-top: 120px;
+}
+
+form label {
+    position: relative;
+    top: 25px;
+    right: 160px;
+}
+
+.username-label {
+    margin-right: 5px;
+}
+
+form .email-label {
+    margin-left: 5px;
+}
+
+form .password1-label {
+    margin-right: 75px;
+}
+
+form .password2-label {
+    margin-left: 16px;
+}
+
+form input {
+    width: 450px;
+    height: 35px;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+form button {
+    width: 450px;
+    margin-top: 10px;
+}
