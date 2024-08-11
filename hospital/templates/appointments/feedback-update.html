@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Змінити відгук</title>
+{% endblock %}
+
+{% block body %}
+<form method="post" class="text-center mt-5">
+    {% csrf_token %}
+    <h2>Змінити відгук</h2>
+    {{ form.text }}<br>
+    <button class="btn btn-info mt-1 text-white">Змінити</button>
+</form>
+{% endblock %}

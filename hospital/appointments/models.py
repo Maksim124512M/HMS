@@ -33,3 +33,17 @@ class Doctor(User):
     class Meta:
         verbose_name = 'Лікар'
         verbose_name_plural = 'Лікарі'
+
+
+class Feedback(models.Model):
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='feedback_doctor')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='feedback_author')
+    text = models.CharField(max_length=500)
+    date_of_publishing = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Feedback for {self.doctor.username} from {self.author.username}'
+
+    class Meta:
+        verbose_name = 'Відгук'
+        verbose_name_plural = 'Відгуки'

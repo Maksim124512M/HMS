@@ -3,8 +3,8 @@
 {% load humanize %}
 
 {% block head %}
+<link rel="stylesheet" href="{% static 'appointments/css/doctor_detail.css' %}">
 <title>Наші лікарі</title>
-
 {% endblock %}
 
 {% block body %}
@@ -14,11 +14,42 @@
         <h3>{{ doctor.username }}</h3>
         <h4>{{ doctor.role }}</h4>
     </div>
-    <h3 class="mt-5">Записи до лікаря</h3>
-    {% for appointment in appointments %}
-        <div>
-            <h5 class="mt-4">{{ appointment.appointment_date_and_time }}</h5>
-        </div>
-    {% endfor %}
+
+    {% if request.user.is_staff %}
+        <h3 class="mt-5">Записи до лікаря</h3>
+        {% for appointment in appointments %}
+            <div>
+                <h5 class="mt-4">{{ appointment.appointment_date_and_time }}</h5>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <div class="feedbacks">
+        <h3 class="mt-5">Відгуки про лікаря</h3>
+        {% if request.user.is_authenticated %}
+            <form method="post">
+                <label for="{{ form.text.id_for_label }}">Надіслати відгук</label><br>
+                {% csrf_token %}
+                {{ form.text }}<br>
+                <button class="btn btn-success mt-1">Надіслати відгук</button>
+            </form>
+        {% else %}
+            <h6>Щоб надіслати відгук, <a href="{% url 'users:login' %}">увійдіть в аккаунт</a></h6>
+        {% endif %}
+
+        {% for feedback in feedbacks %}
+            <div class="feedback">
+                <h5>{{ feedback.author.username }}</h5>
+                <p>{{ feedback.text }}</p>
+                {% if feedback.author == request.user %}
+                    <a href="{% url 'appointments:feedback_update' feedback.id %}"><button class="btn btn-info text-white">Змінити</button></a>
+                    <a href="{% url 'appointments:feedback_delete' feedback.id %}"><button class="btn btn-info text-white">Видалити</button></a>
+                {% endif %}
+            </div>
+            <div class="text-center w-50 hr">
+                <hr>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

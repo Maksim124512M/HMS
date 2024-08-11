@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Видалити відгук</title>
+{% endblock %}
+
+{% block body %}
+<form method="post" class="text-center mt-5">
+    {% csrf_token %}
+    <h4>Ви хочете видалити відгук {{ object }}?</h4>
+    <a href="{% url 'appointments:our_doctors' %}" class="mt-1">Ні, не видаляти</a><br>
+    <button class="btn btn-warning mt-1">Так, видалити</button>
+</form>
+{% endblock %}
