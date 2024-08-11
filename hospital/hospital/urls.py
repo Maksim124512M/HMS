@@ -26,6 +26,9 @@ urlpatterns = [
     path('', include('hms_site.urls', namespace='hms_site')),
     path('', include('appointments.urls', namespace='appointments')),
     path('accounts/', include('users.urls', namespace='users')),  
-] + debug_toolbar_urls()
+]
 
+if settings.DEBUG:
+    urlpatterns += debug_toolbar_urls()
+    
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
