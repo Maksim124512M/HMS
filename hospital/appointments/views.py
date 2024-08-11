@@ -21,8 +21,8 @@ class DoctorDetailView(generic.DetailView, generic.FormView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['appointments'] = Appointment.objects.filter(doctor_id=self.kwargs.get('pk'))
-        context['feedbacks'] = Feedback.objects.filter(doctor_id=self.kwargs.get('pk'))
+        context['appointments'] = Appointment.objects.select_related('doctor').filter(doctor_id=self.kwargs.get('pk'))
+        context['feedbacks'] = Feedback.objects.select_related('doctor').filter(doctor_id=self.kwargs.get('pk'))
 
         return context
 

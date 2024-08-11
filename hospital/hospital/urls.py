@@ -19,11 +19,13 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+from debug_toolbar.toolbar import debug_toolbar_urls
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('hms_site.urls', namespace='hms_site')),
     path('', include('appointments.urls', namespace='appointments')),
-    path('accounts/', include('users.urls', namespace='users')),
-]
+    path('accounts/', include('users.urls', namespace='users')),  
+] + debug_toolbar_urls()
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
