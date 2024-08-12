@@ -20,6 +20,10 @@
         {% for appointment in appointments %}
             <div>
                 <h5 class="mt-4">{{ appointment.appointment_date_and_time }}</h5>
+                <h4>{{ appointment.patient_name }}</h4>
+                <h5>{{ appointment.patient_phone_number }}</h5>
+                <p>{{ appointment.patient_description }}</p>
+                <hr>
             </div>
         {% endfor %}
     {% endif %}
